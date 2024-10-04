@@ -89,11 +89,45 @@ public class String4YearsSolution {
         System.out.println(collect);
 
     }
+    private static void RotationOfAnOtherString(){
+        String s1 = "waterbottle";
+        String s2 = "erbottlewat";
+        if(s2.length()==s1.length() && s1.length()>0){
+           String string= s1+s1;
+           if(s1.contains(s2));
+            System.out.println(s1+" is rotation of "+s2);
+        }else {
+            System.out.println(s1+" is not rotation of "+s2);
+        }
+    }
 
+    //todo remove dublicate of a String
+    private static void removedDoblicate(){
+        String string="asdffdsaweasd";
+        String collect = string.replaceAll("\\s", "").toLowerCase()
+                .chars().mapToObj(e -> (char) e)
+                .distinct().map(e -> e + "")
+                .collect(Collectors.joining());
+        System.out.println(collect);
+    }
+
+    //todo find first Non-repeated character
+    private static void findNonRepeatedCharacter(){
+        String string= "Swiss";
+        //output: w
+        Character c = string.replaceAll("\\s", "").toLowerCase()
+                .chars().mapToObj(e -> (char) e).collect(Collectors.groupingBy(e -> e, Collectors.counting())).entrySet()
+                .stream()
+                .sorted((e1, e2) -> Math.toIntExact(e1.getValue() - e2.getValue())).map(e -> e.getKey()).findFirst().get();
+        System.out.println(c);
+    }
 
     public static void main(String[] args) {
         //reverseWordInString();
         //anagrams();
         //stringCompression();
+        //RotationOfAnOtherString();
+        //removedDoblicate();
+        findNonRepeatedCharacter();
     }
 }
