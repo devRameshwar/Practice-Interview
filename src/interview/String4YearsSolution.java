@@ -121,6 +121,20 @@ public class String4YearsSolution {
                 .sorted((e1, e2) -> Math.toIntExact(e1.getValue() - e2.getValue())).map(e -> e.getKey()).findFirst().get();
         System.out.println(c);
     }
+    private static void findFirstRepetedNumber(){
+        String string="Swissi";
+        string.replaceAll("\\s","").toLowerCase();
+        for (int i = 0; i <string.length()-1; i++) {
+            //System.out.println(string.charAt(i));
+            for (int j = i+1; j <string.length()-1; j++) {
+                if (string.charAt(i)==string.charAt(j)){
+                    //System.out.print(string.charAt(i));
+                    break;
+                }
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         //reverseWordInString();
@@ -128,6 +142,7 @@ public class String4YearsSolution {
         //stringCompression();
         //RotationOfAnOtherString();
         //removedDoblicate();
-        findNonRepeatedCharacter();
+        //findNonRepeatedCharacter();
+        findFirstRepetedNumber();
     }
 }
