@@ -148,7 +148,7 @@ public class Operation {
         //addingTwoList();
         //findFeqOfStringChar();
         //printPattern();
-        //primeNumber();
+        primeNumber();
         palindrome();
 
 

@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class String4YearsSolution {
 
@@ -134,6 +135,23 @@ public class String4YearsSolution {
             }
         }
     }
+    private static void primeNumber(){
+
+        IntStream.iterate(2,i->i+1).limit(100).mapToObj(e->(int)e).filter(number->{
+            if (number <= 1) return false;// 1 and lower are not prime
+            for (int i = 2; i <= number / 2; i++) {
+                if (number % i == 0) {
+                    return false; //todo: If divisible by any number other than 1 and itself
+                }
+            }
+            return true;
+        }).forEach(e->System.out.print(e+"  "));
+
+        String string="12";
+        int i = Integer.parseInt(string);
+        System.out.println(i);
+
+    }
 
 
     public static void main(String[] args) {
@@ -143,6 +161,7 @@ public class String4YearsSolution {
         //RotationOfAnOtherString();
         //removedDoblicate();
         //findNonRepeatedCharacter();
-        findFirstRepetedNumber();
+       // findFirstRepetedNumber();
+        primeNumber();
     }
 }
