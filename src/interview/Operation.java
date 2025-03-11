@@ -13,22 +13,28 @@ public class Operation {
         List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
         List<Integer> list2 = Arrays.asList(7, 5, 4, 3, 0, 2, 1);
 
-        List<Integer> collect = Stream.of(list1, list2).flatMap(e -> e.stream()).collect(Collectors.toList());
+        List<Integer> collect = Stream.of(list1, list2)
+                .flatMap(e -> e.stream()).collect(Collectors.toList());
 
         System.out.println(collect);
     }
 
     public static void findFeqOfStringChar() {
         String string = "AppleIsSweet";
-        Map<Character, Long> feqChar = string.toLowerCase().chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+        Map<Character, Long> feqChar = string.toLowerCase().chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
         System.out.println(feqChar);
 
         //count special given char
-        long count = string.toLowerCase().chars().mapToObj(c -> (char) c).filter(c -> c == 'e').count();
+        long count = string.toLowerCase().chars()
+                .mapToObj(c -> (char) c).filter(c -> c == 'e').count();
         System.out.println("count char: " + count);
 
         //find first repeated number
-        char findFist = string.toLowerCase().chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(c -> c, Collectors.counting())).entrySet().stream().map(c -> c.getKey()).findFirst().get();
+        char findFist = string.toLowerCase().chars().mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(c -> c, Collectors.counting()))
+                .entrySet().stream().map(c -> c.getKey()).findFirst().get();
 
         System.out.println(findFist);
 
@@ -145,7 +151,7 @@ public class Operation {
 
 
     public static void main(String[] args) {
-        //addingTwoList();
+        addingTwoList();
         //findFeqOfStringChar();
         //printPattern();
         primeNumber();

@@ -1,8 +1,7 @@
 package interview;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
+ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -147,9 +146,9 @@ public class String4YearsSolution {
             return true;
         }).forEach(e->System.out.print(e+"  "));
 
-        String string="12";
+        /*String string="12";
         int i = Integer.parseInt(string);
-        System.out.println(i);
+        System.out.println(i);*/
 
     }
 

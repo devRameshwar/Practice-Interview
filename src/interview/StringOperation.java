@@ -10,8 +10,6 @@ import java.util.stream.IntStream;
 
 public class StringOperation {
 
-
-
     private static void pattern() {
         int n = 5;
         for (int i = 0; i < n; i++) {
@@ -78,15 +76,22 @@ public class StringOperation {
     //todo: finding long length of word in String
     private static void longWordInString() {
         String string = "Ram is a Good Boy in the Class";
-        String first = Arrays.stream(string.split(" ")).sorted((e1, e2) -> e2.length() - e1.length()).findFirst().get();
+        String first = Arrays.stream(string.split(" "))
+                .sorted((e1, e2) -> e2.length() - e1.length()).findFirst().get();
         //String[] split = string.split(" ");
         System.out.println(first);
 
     }
+    public static void fecuencyOfCharecter(){
+        String string="Rameshwar";
+        Map<Character, Long> collect = string.toLowerCase().chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+        System.out.println(collect);
+    }
 
     public static void main(String[] args) {
         //printArmStrongNumber();
-        pattern();
+        //pattern();
+        fecuencyOfCharecter();
         //longWordInString();
         //reverseString();
         //printNumber();
